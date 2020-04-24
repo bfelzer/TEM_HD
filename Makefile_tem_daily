@@ -1,0 +1,31 @@
+CXX = /zhome/Apps/pgi/linux86-64/15.1/bin/pgCC
+CFLAGS = -O2 -Mscalarsse -mcmodel=medium
+
+ELMNTOBJ = ttemdailyread.o tmaxcohortdat45.o tclmdatd.o 
+
+tem_daily :  ${ELMNTOBJ} tem_daily.cpp
+	${CXX} ${CFLAGS} -o tem_daily ${ELMNTOBJ} tem_daily.cpp
+
+tem_dailym :  ${ELMNTOBJ} tem_dailym.cpp
+	${CXX} ${CFLAGS} -o tem_dailym ${ELMNTOBJ} tem_dailym.cpp
+
+clm_dailym :  ${ELMNTOBJ} clm_dailym.cpp
+	${CXX} ${CFLAGS} -o clm_dailym ${ELMNTOBJ} clm_dailym.cpp
+
+clm_dailym_fut :  ${ELMNTOBJ} clm_dailym_fut.cpp
+	${CXX} ${CFLAGS} -o clm_dailym_fut ${ELMNTOBJ} clm_dailym_fut.cpp
+
+tem_dailym_multi :  ${ELMNTOBJ} tem_dailym_multi.cpp
+	${CXX} ${CFLAGS} -o tem_dailym_multi ${ELMNTOBJ} tem_dailym_multi.cpp
+
+tem_dailym_multi_hist :  ${ELMNTOBJ} tem_dailym_multi_hist.cpp
+	${CXX} ${CFLAGS} -o tem_dailym_multi_hist ${ELMNTOBJ} tem_dailym_multi_hist.cpp
+
+ttemdailyread.o : ttemdailyread.cpp ttemdailyread.h
+	${CXX} ${CFLAGS} -c ttemdailyread.cpp
+
+tmaxcohortdat45.o : tmaxcohortdat45.cpp tmaxcohortdat45.h
+	${CXX} ${CFLAGS} -c tmaxcohortdat45.cpp
+
+tclmdatd.o : tclmdatd.cpp tclmdatd.h
+	${CXX} ${CFLAGS} -c tclmdatd.cpp
